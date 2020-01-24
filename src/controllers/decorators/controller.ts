@@ -2,9 +2,25 @@ import { MetadataKeys } from './MetadataKeys';
 import { Methods } from './Methods';
 import { AppRouter } from './../../AppRouter';
 import 'reflect-metadata';
+import { RequestHandler, NextFunction } from 'express';
+
+
+// function bodyValidators(keys: string): RequestHandler {
+//   return function (req: Request, res: Response, next: NextFunction) {
+//     if (!req.body) {
+//       res.status(422).send('invalid request');
+//       return;
+//     }
+
+//     for (let key of keys) {
+//       if 
+//     }
+
+//   }
+// }
 
 export function controller(routePrefix: string) {
-  return function(target: Function) {
+  return function (target: Function) {
     const router = AppRouter.getInstance();
 
     for (let key in target.prototype) {
